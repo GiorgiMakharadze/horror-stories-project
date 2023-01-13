@@ -1,0 +1,63 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
+
+.maincContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  gap: 2rem;
+
+  margin-top: 3rem;
+  margin-left: 3rem;
+  margin-right: 3rem;
+}
+
+.secondaryContainer {
+  border: 0.1rem outset $color-quaternary;
+  position: relative;
+  background-color: $color-secondary;
+
+  &:hover {
+    transition: 0.3s;
+    transform: translateY(-1rem);
+    box-shadow: -8px 5px $color-tertiary;
+    cursor: pointer;
+  }
+
+  section {
+    @include flexCenter;
+    flex-direction: column;
+  }
+
+  h1 {
+    color: $color-tertiary;
+    font-size: $font-main;
+  }
+
+  h2 {
+    color: $color-main;
+    font-size: $font-secondary;
+  }
+  p {
+    font-size: $font-quaternary;
+  }
+
+  button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 9rem;
+    height: 4rem;
+    border-radius: 0.5rem;
+
+    cursor: pointer;
+    background-color: $color-secondary;
+    font-size: $font-tertiary;
+
+    color: $color-main;
+  }
+
+  button:hover {
+    @include buttonHover($color-tertiary);
+  }
+}

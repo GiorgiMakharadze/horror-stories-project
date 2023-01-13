@@ -1,0 +1,13 @@
+@import "./mixins.scss";
+@import "./variables.scss";
+
+.error {
+  @include flexCenter;
+  flex-direction: column;
+
+  h1 {
+    color: $color-tertiary;
+    font-size: 7rem;
+    padding: 4rem;
+  }
+}

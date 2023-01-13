@@ -1,0 +1,102 @@
+@import "../../../styles/variables.scss";
+@import "../../../styles/mixins.scss";
+
+.mainContainer {
+  @include flexCenter;
+  flex-direction: column;
+  gap: 1rem;
+
+  input {
+    margin-top: 0.5rem;
+    height: 4rem;
+    width: 60rem;
+    background-color: $color-secondary;
+    color: $color-main;
+    font-family: "Creepster", cursive;
+    font-size: $font-tertiary;
+
+    &:focus {
+      outline: none;
+      border: 0.2rem outset $color-tertiary;
+    }
+  }
+
+  .commentsInput {
+    height: 10rem;
+  }
+
+  textarea {
+    max-height: 20rem;
+    min-height: 20rem;
+    max-width: 60rem;
+    min-width: 60rem;
+    margin-top: 1rem;
+
+    background-color: $color-secondary;
+    color: $color-main;
+    font-family: "Creepster", cursive;
+    font-size: $font-tertiary;
+
+    &:focus {
+      outline: none;
+      border: 0.2rem outset $color-tertiary;
+    }
+  }
+
+  button {
+    font-size: $font-tertiary;
+    font-family: "Creepster", cursive;
+    width: 15rem;
+    height: 4rem;
+    background-color: $color-secondary;
+    border-radius: 0.3rem;
+    color: $color-main;
+
+    &:hover {
+      @include buttonHover($color-main);
+      color: $color-secondary;
+      cursor: pointer;
+    }
+  }
+}
+
+.commentsSection {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  border: 0.3rem outset $color-tertiary;
+  width: 60%;
+  height: 20rem;
+  margin-top: 3rem;
+
+  background-color: $color-secondary;
+
+  h1,
+  p {
+    font-size: $font-secondary;
+    margin-left: 1rem;
+    margin-top: 1rem;
+  }
+
+  span {
+    font-size: $font-secondary;
+    color: $color-tertiary;
+  }
+
+  button {
+    font-size: $font-tertiary;
+    font-family: "Creepster", cursive;
+    width: 10rem;
+    height: 4rem;
+    border-radius: 0.3rem;
+    background-color: $color-secondary;
+    margin-top: 0.5rem;
+    color: $color-main;
+
+    &:hover {
+      @include buttonHover($color-tertiary);
+      color: $color-secondary;
+      cursor: pointer;
+    }
+  }
+}

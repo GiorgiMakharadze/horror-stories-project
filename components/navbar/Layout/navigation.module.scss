@@ -1,0 +1,18 @@
+@import "../../../styles/mixins.scss";
+@import "../../../styles/variables.scss";
+
+.nav {
+  @include flexCenter;
+  gap: 30rem;
+  font-size: 4rem;
+  border-bottom: 0.1rem inset $color-main;
+  background-color: $color-secondary;
+}
+
+.link {
+  padding: 1rem;
+}
+
+.link:hover {
+  @include buttonHover($color-main);
+}

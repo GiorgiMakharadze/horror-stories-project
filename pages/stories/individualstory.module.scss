@@ -1,0 +1,55 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
+
+.mainContainer {
+  @include flexCenter;
+  flex-direction: column;
+}
+
+.secondaryContainer {
+  @include flexCenter;
+  flex-direction: column;
+  width: 140rem;
+
+  h1 {
+    font-size: $font-main;
+    color: $color-tertiary;
+    margin-top: 2rem;
+  }
+
+  h2 {
+    font-size: $font-secondary;
+    margin-top: 1rem;
+  }
+
+  p {
+    @include flexCenter;
+    flex-direction: column;
+    font-size: $font-secondary;
+    border: 0.1rem outset $color-quaternary;
+    padding: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    background-color: $color-secondary;
+    color: $color-tertiary;
+  }
+
+  button {
+    position: relative;
+    top: 1rem;
+    left: -62.6rem;
+    font-size: $font-tertiary;
+    font-family: "Creepster", cursive;
+    width: 15rem;
+    height: 4rem;
+    background-color: $color-secondary;
+    border-radius: 0.3rem;
+    color: $color-main;
+
+    &:hover {
+      @include buttonHover($color-main);
+      color: $color-secondary;
+      cursor: pointer;
+    }
+  }
+}

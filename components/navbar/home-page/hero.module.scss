@@ -1,0 +1,28 @@
+@import "../../../styles/mixins.scss";
+@import "../../../styles/variables.scss";
+
+.hero {
+  @include flexCenter;
+  flex-direction: column;
+  font-size: $font-main;
+
+  main {
+    width: 50rem;
+    font-size: $font-secondary;
+  }
+
+  section {
+    @include flexCenter;
+    gap: 1rem;
+  }
+}
+
+.link {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-left: 1rem;
+}
+
+.link:hover {
+  @include buttonHover($color-tertiary);
+}
