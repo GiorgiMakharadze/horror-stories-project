@@ -69,7 +69,6 @@ const CommentsPage = () => {
         </form>
         <button onClick={submitComments}>Submit</button>
       </div>
-      {console.log("comments", comments)}
       {comments.map((comment, i) => (
         <div key={i} className={styles.commentsSection}>
           <h1>
