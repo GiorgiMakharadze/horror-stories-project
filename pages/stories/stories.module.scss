@@ -61,3 +61,24 @@
     @include buttonHover($color-tertiary);
   }
 }
+
+.dropdown {
+  @include flexCenter;
+  width: 25rem;
+  height: 5rem;
+  font-size: $font-main;
+  font-family: "Creepster", cursive;
+  background-color: $color-secondary;
+  border-radius: 0.4rem;
+  color: $color-main;
+  cursor: pointer;
+
+  margin-left: 3rem;
+  margin-top: 2rem;
+}
+
+.option:checked {
+  background-color: $color-main;
+  color: $color-secondary;
+  cursor: pointer;
+}

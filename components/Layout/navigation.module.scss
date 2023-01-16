@@ -11,8 +11,8 @@
 
 .link {
   padding: 1rem;
-}
 
-.link:hover {
-  @include buttonHover($color-main);
+  &:hover {
+    @include buttonHover($color-main);
+  }
 }

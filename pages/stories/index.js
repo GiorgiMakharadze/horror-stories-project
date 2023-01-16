@@ -4,26 +4,56 @@ import styles from "./stories.module.scss";
 
 const storiesPage = ({ stories }) => {
   const [show, setShow] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState("all");
 
   if (!stories) return <h1>Loading</h1>;
 
-  return (
-    <div className={styles.maincContainer}>
-      {stories.map((story) => {
-        return (
-          <div key={story.id} className={styles.secondaryContainer}>
-            <Link href={`/stories/${story.id}`}>
-              <section>
-                <h1>{story.title}</h1>
-                <h2>{story.category}</h2>
-              </section>
-            </Link>
+  const Dropdown = (
+    <select
+      className={styles.dropdown}
+      onChange={(e) => setSelectedCategory(e.target.value)}
+      value={selectedCategory}
+    >
+      <option value="all" className={styles.option}>
+        All
+      </option>
+      <option value="Real Stories" className={styles.option}>
+        Real stories
+      </option>
+      <option value="Serial killers" className={styles.option}>
+        Serial killers
+      </option>
+      <option value="Legends" className={styles.option}>
+        Legends
+      </option>
+    </select>
+  );
 
-            {show && <p>{story.text}</p>}
-          </div>
-        );
-      })}
-    </div>
+  return (
+    <>
+      {Dropdown}
+      <div className={styles.maincContainer}>
+        {stories
+          .filter((story) => {
+            if (selectedCategory === "all" && "legends") return true;
+            return story.category === selectedCategory;
+          })
+          .map((story) => {
+            return (
+              <div key={story.id} className={styles.secondaryContainer}>
+                <Link href={`/stories/${story.id}`}>
+                  <section>
+                    <h1>{story.title}</h1>
+                    <h2>{story.category}</h2>
+                  </section>
+                </Link>
+
+                {show && <p>{story.text}</p>}
+              </div>
+            );
+          })}
+      </div>
+    </>
   );
 };
 export async function getStaticProps() {
