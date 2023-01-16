@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 import styles from "./comments.module.scss";
 
 const CommentsPage = () => {
@@ -6,47 +7,67 @@ const CommentsPage = () => {
   const [comment, setComment] = useState("");
   const [name, setName] = useState("");
 
+  const route = useRouter();
+
   const fetchComment = async () => {
-    const getResponse = await fetch("/api/comments");
-    const getData = await getResponse.json();
-    setComments(getData);
+    try {
+      const getResponse = await fetch("/api/comments");
+      const getData = await getResponse.json();
+      setComments(getData);
+    } catch {
+      route.push("/commentsError");
+    }
   };
+
+  useEffect(() => {
+    const commentsFromStorage = JSON.parse(sessionStorage.getItem("comments"));
+    if (commentsFromStorage) {
+      setComments(commentsFromStorage);
+      fetchComment();
+    }
+  }, []);
 
   const submitComments = async (e) => {
     e.preventDefault();
-    if (name.trim().length === 0 && comment.trim().length === 0) {
+    if (name.trim().length === 0 || comment.trim().length === 0) {
       return;
     }
-    //POST  request
-    const postResponse = await fetch("/api/comments", {
-      method: "POST",
-      body: JSON.stringify({ comment, name }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    const postData = await postResponse.json();
-    console.log(postData);
+    try {
+      //POST  request
+      const postResponse = await fetch("/api/comments", {
+        method: "POST",
+        body: JSON.stringify({ comment, name }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const postData = await postResponse.json();
 
-    //GET request
-    const getResponse = await fetch("/api/comments");
-    const getData = await getResponse.json();
-    setComments(getData);
+      //GET request
+      const getResponse = await fetch("/api/comments");
+      const getData = await getResponse.json();
+      setComments(getData);
 
-    localStorage.setItem("comments", JSON.stringify(postData));
+      fetchComment();
+      sessionStorage.setItem("comments", JSON.stringify(getData));
+    } catch {
+      route.push("/commentsError");
+    }
   };
 
   const deleteComment = async (commentId) => {
-    const response = await fetch(`/api/comments/${commentId}`, {
-      method: "DELETE",
-    });
-    // check if response
-    console.log(response);
-    // const data = await response.json();
-    // console.log(data);
+    try {
+      const response = await fetch(`/api/comments/${commentId}`, {
+        method: "DELETE",
+      });
 
-    window.localStorage.removeItem(commentId);
-    fetchComment();
+      const updatedComments = comments.filter((c) => c.id !== commentId);
+      setComments(updatedComments);
+
+      sessionStorage.removeItem("comments", JSON.stringify(updatedComments));
+    } catch {
+      route.push("/commentsError");
+    }
   };
 
   return (
@@ -76,6 +97,9 @@ const CommentsPage = () => {
           </h1>
           <p>
             commentary - <span>{comment.text}</span>
+          </p>
+          <p>
+            <span>{comment.Important}</span>
           </p>
           <button onClick={() => deleteComment(comment.id)}>Delete</button>
         </div>
