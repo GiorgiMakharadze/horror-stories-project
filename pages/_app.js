@@ -1,5 +1,5 @@
 import "../styles/globals.scss";
-import Layout from "../components/navbar/Layout/layout";
+import Layout from "../components/Layout/layout";
 
 export default function App({ Component, pageProps }) {
   return (

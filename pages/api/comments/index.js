@@ -53,6 +53,9 @@ const CommentsPage = () => {
     } catch {
       route.push("/commentsError");
     }
+
+    setName("");
+    setComment("");
   };
 
   const deleteComment = async (commentId) => {
@@ -64,7 +67,7 @@ const CommentsPage = () => {
       const updatedComments = comments.filter((c) => c.id !== commentId);
       setComments(updatedComments);
 
-      sessionStorage.removeItem("comments", JSON.stringify(updatedComments));
+      sessionStorage.setItem("comments", JSON.stringify(updatedComments));
     } catch {
       route.push("/commentsError");
     }
