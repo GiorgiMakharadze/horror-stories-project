@@ -2,7 +2,7 @@ import CommentsPage from "../api/comments/index";
 import { useRouter } from "next/router";
 import styles from "./individualstory.module.scss";
 
-const storie = ({ story }) => {
+const Story = ({ story }) => {
   if (!story) {
     return <h1>story not found</h1>;
   }
@@ -25,7 +25,7 @@ const storie = ({ story }) => {
   );
 };
 0;
-export default storie;
+export default Story;
 
 export async function getStaticPaths() {
   const response = await fetch(

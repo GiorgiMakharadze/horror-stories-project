@@ -11,7 +11,7 @@ const navigation = () => {
       <Link href="/">
         <Logo />
       </Link>
-      <Link className={styles.link} href="/addyourstorie">
+      <Link className={styles.link} href="/addyourstory">
         Add Your Story
       </Link>
     </nav>

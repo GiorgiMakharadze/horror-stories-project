@@ -1,12 +1,12 @@
 @import "../../styles/variables.scss";
 @import "../../styles/mixins.scss";
 
-.maincContainer {
+.mainContainer {
+  @include flexCenter;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(10, 1fr);
   gap: 2rem;
-
   margin-top: 3rem;
   margin-left: 3rem;
   margin-right: 3rem;

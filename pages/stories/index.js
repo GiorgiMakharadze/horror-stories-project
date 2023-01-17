@@ -32,7 +32,7 @@ const storiesPage = ({ stories }) => {
   return (
     <>
       {Dropdown}
-      <div className={styles.maincContainer}>
+      <div className={styles.mainContainer}>
         {stories
           .filter((story) => {
             if (selectedCategory === "all" && "legends") return true;

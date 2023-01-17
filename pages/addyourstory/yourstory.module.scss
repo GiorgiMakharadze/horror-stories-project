@@ -1,0 +1,102 @@
+@import "../../styles/mixins.scss";
+@import "../../styles/variables.scss";
+
+.mainContainer {
+  @include flexCenter;
+  flex-direction: column;
+  position: relative;
+  bottom: 15rem;
+  width: 100%;
+  margin-top: 15rem;
+  h1 {
+    font-size: $font-main;
+  }
+}
+
+.secondContainer {
+  @include flexCenter;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 3rem;
+
+  input {
+    margin-top: 0.5rem;
+    height: 4rem;
+    width: 60rem;
+    background-color: $color-secondary;
+    color: $color-main;
+    font-family: "Creepster", cursive;
+    font-size: $font-tertiary;
+
+    &:focus {
+      outline: none;
+      border: 0.2rem outset $color-tertiary;
+    }
+  }
+
+  textarea {
+    min-height: 80rem;
+    max-width: 60rem;
+    min-width: 60rem;
+
+    background-color: $color-secondary;
+    color: $color-main;
+    font-family: "Creepster", cursive;
+    font-size: $font-tertiary;
+
+    &:focus {
+      outline: none;
+      border: 0.2rem outset $color-tertiary;
+    }
+  }
+
+  select {
+    position: relative;
+    @include flexCenter;
+    width: 15rem;
+    height: 3rem;
+    font-size: $font-tertiary;
+    font-family: "Creepster", cursive;
+    background-color: $color-secondary;
+    border-radius: 0.4rem;
+    color: $color-main;
+    cursor: pointer;
+    margin-top: 1rem;
+  }
+
+  button {
+    position: relative;
+    font-size: $font-tertiary;
+    top: 3rem;
+    font-family: "Creepster", cursive;
+    width: 18rem;
+    height: 4rem;
+    background-color: $color-secondary;
+    border-radius: 0.3rem;
+    color: $color-main;
+
+    &:hover {
+      @include buttonHover($color-main);
+      color: $color-secondary;
+      cursor: pointer;
+    }
+  }
+}
+
+.ImportantMessage {
+  @include flexCenter;
+  width: inherit;
+  height: inherit;
+  margin: 0.5rem;
+  color: $color-tertiary;
+  margin-bottom: 2rem;
+
+  h1 {
+    font-size: $font-main;
+  }
+
+  p {
+    font-size: $font-secondary;
+    padding-left: 0.5rem;
+  }
+}
