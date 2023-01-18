@@ -46,16 +46,51 @@
   position: absolute;
   right: 27rem;
   font-size: $font-secondary;
-  @include media-query("sm") {
-    right: 10rem;
+  @include mobile() {
+    right: 8rem;
     font-size: $font-tertiary;
   }
 }
 
-.logo {
-  @include media-query("sm") {
+@include mobile() {
+  .mainDiv {
     position: relative;
-    right: 10rem;
+    left: 0.1rem;
+  }
+
+  .logo,
+  .fbLogo {
+    position: relative;
+    right: 9rem;
+
     font-size: $font-tertiary;
+  }
+}
+
+@include pad() {
+  .mainDiv {
+    position: relative;
+    left: 0.1rem;
+  }
+
+  .logo,
+  .fbLogo {
+    position: relative;
+    top: 10rem;
+
+    font-size: $font-tertiary;
+    border: 0.5rem outset $color-secondary;
+    background-color: $color-secondary;
+  }
+}
+
+@include note() {
+  .secondayDiv {
+    @include mobile() {
+      position: relative;
+      left: 10rem;
+      bottom: 3rem;
+      font-size: $font-tertiary;
+    }
   }
 }

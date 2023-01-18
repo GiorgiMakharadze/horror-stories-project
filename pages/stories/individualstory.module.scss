@@ -52,5 +52,50 @@
       color: $color-secondary;
       cursor: pointer;
     }
+    @include note() {
+      position: relative;
+      left: 1rem;
+    }
+
+    @include pad() {
+      position: relative;
+      left: 0.1rem;
+      width: 10rem;
+    }
+    @include mobile() {
+      position: relative;
+      left: 0.1rem;
+      width: 10rem;
+    }
+  }
+}
+
+@include note() {
+  .secondaryContainer {
+    position: relative;
+    @include flexCenter;
+    flex-direction: column;
+    width: 100rem;
+    right: 0.5rem;
+    margin-top: 10rem;
+  }
+}
+@include pad() {
+  .secondaryContainer {
+    position: relative;
+    @include flexCenter;
+    flex-direction: column;
+    width: 80rem;
+    margin-top: 10rem;
+  }
+}
+@include mobile() {
+  .secondaryContainer {
+    position: relative;
+    @include flexCenter;
+    flex-direction: column;
+    width: 35rem;
+    right: 0.5rem;
+    margin-top: 10rem;
   }
 }

@@ -81,6 +81,17 @@
       cursor: pointer;
     }
   }
+
+  @include mobile() {
+    input {
+      width: 96%;
+    }
+    textarea {
+      min-height: 60rem;
+      max-width: 35rem;
+      min-width: 35rem;
+    }
+  }
 }
 
 .ImportantMessage {
@@ -98,5 +109,9 @@
   p {
     font-size: $font-secondary;
     padding-left: 0.5rem;
+  }
+
+  @include pad() {
+    margin-top: 10rem;
   }
 }

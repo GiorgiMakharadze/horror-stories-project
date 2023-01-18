@@ -10,6 +10,10 @@
   margin-top: 3rem;
   margin-left: 3rem;
   margin-right: 3rem;
+
+  @include mobile() {
+    @include flexCenter;
+  }
 }
 
 .secondaryContainer {
@@ -75,6 +79,14 @@
 
   margin-left: 3rem;
   margin-top: 2rem;
+
+  @include mobile() {
+    margin-left: 8rem;
+    margin-top: 10rem;
+  }
+  @include pad() {
+    margin-left: 1rem;
+  }
 }
 
 .option:checked {

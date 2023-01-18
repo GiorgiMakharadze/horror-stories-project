@@ -19,6 +19,10 @@
       outline: none;
       border: 0.2rem outset $color-tertiary;
     }
+
+    @include mobile() {
+      width: 39rem;
+    }
   }
 
   .commentsInput {
@@ -40,6 +44,10 @@
     &:focus {
       outline: none;
       border: 0.2rem outset $color-tertiary;
+    }
+    @include mobile() {
+      max-width: 39rem;
+      min-width: 39rem;
     }
   }
 
@@ -99,5 +107,13 @@
       color: $color-secondary;
       cursor: pointer;
     }
+  }
+}
+
+@include mobile() {
+  .commentsSection {
+    position: relative;
+    height: inherit;
+    right: 1rem;
   }
 }

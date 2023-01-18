@@ -7,6 +7,22 @@
   font-size: $font-main;
   margin-top: 10rem;
 
+  @include mobile() {
+    h1 {
+      width: 20rem;
+      font-size: $font-secondary;
+    }
+    h2 {
+      width: 40rem;
+      font-size: $font-secondary;
+    }
+
+    h4 {
+      width: 40rem;
+      font-size: $font-secondary;
+    }
+  }
+
   h1,
   h4 {
     color: $color-tertiary;
