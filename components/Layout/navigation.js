@@ -25,6 +25,7 @@ const navigation = () => {
               src={FBLogo}
               alt="Facebook Logo"
               style={{ cursor: "pointer" }}
+              className={styles.logo}
             />
           </Link>
         )}

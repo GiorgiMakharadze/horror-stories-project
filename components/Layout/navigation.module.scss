@@ -5,6 +5,7 @@
   @include flexCenter;
   position: relative;
   font-size: $font-main;
+  width: 100%;
   border-bottom: 0.1rem inset $color-main;
   background-color: $color-secondary;
 }
@@ -12,6 +13,7 @@
 .link {
   padding: 1rem;
   margin-right: 1rem;
+  font-size: $font-secondary;
 
   &:hover {
     @include buttonHover($color-main);
@@ -36,11 +38,24 @@
   position: relative;
   @include flexCenter;
   width: inherit;
-  right: 14rem;
+  left: -15rem;
   gap: 8rem;
 }
 
 .secondayDiv {
   position: absolute;
   right: 27rem;
+  font-size: $font-secondary;
+  @include media-query("sm") {
+    right: 10rem;
+    font-size: $font-tertiary;
+  }
+}
+
+.logo {
+  @include media-query("sm") {
+    position: relative;
+    right: 10rem;
+    font-size: $font-tertiary;
+  }
 }

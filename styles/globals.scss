@@ -9,13 +9,13 @@
 
 html,
 body {
-  max-width: 100vw;
   overflow-x: hidden;
   font-family: "Creepster", cursive;
   font-size: 62.5%;
   background-color: lighten($color-secondary, 10%);
   color: $color-main;
   height: 100vh;
+  width: 100%;
 }
 
 a {

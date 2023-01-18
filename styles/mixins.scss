@@ -23,7 +23,7 @@ $breakpoints: (
 );
 
 @mixin media-query($breakpoint) {
-  @media (min-width: map-get($breakpoints, $breakpoint)) {
+  @media (min-width: map-get($breakpoints, "sm")) {
     @content;
   }
 }

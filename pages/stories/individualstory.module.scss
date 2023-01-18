@@ -3,6 +3,7 @@
 
 .mainContainer {
   @include flexCenter;
+  position: relative;
   flex-direction: column;
 }
 
