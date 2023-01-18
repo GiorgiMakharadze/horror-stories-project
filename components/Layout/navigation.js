@@ -3,7 +3,7 @@ import Logo from "./logo";
 import styles from "./navigation.module.scss";
 import Image from "next/image";
 import { useSession, signIn, signOut } from "next-auth/react";
-import FBLogo from "../../public/images/fb.svg";
+import Guthub from "../../public/images/github.svg";
 const navigation = () => {
   const { data: session } = useSession();
 
@@ -22,15 +22,15 @@ const navigation = () => {
           <Link href="/api/auth/signin">
             <Image
               onClick={() => signIn()}
-              src={FBLogo}
-              alt="Facebook Logo"
+              src={Guthub}
+              alt="github Logo"
               style={{ cursor: "pointer" }}
               className={styles.logo}
             />
           </Link>
         )}
         {session && (
-          <div className={styles.fbLogo}>
+          <div className={styles.gtLogo}>
             <Link className={styles.link} href="/addyourstory">
               Add Your Story
             </Link>
