@@ -1,4 +1,3 @@
-import Link from "next/link";
 import styles from "./hero.module.scss";
 
 const hero = () => {
@@ -12,15 +11,8 @@ const hero = () => {
           This is a horror stories Site. Here you can read other people's
           stories and add your own !
         </h2>
+        <h4>To Add Your Story Sign In With Facebook !</h4>
       </main>
-      <section>
-        <Link className={styles.link} href="/logIn">
-          Log In
-        </Link>
-        <Link className={styles.link} href="/signup">
-          Sing Up
-        </Link>
-      </section>
     </div>
   );
 };

@@ -28,51 +28,61 @@ const Story = ({ story }) => {
 export default Story;
 
 export async function getStaticPaths() {
-  const response = await fetch(
-    "https://horror-stories-432d7-default-rtdb.firebaseio.com/fictional.json"
-  );
-  const data = await response.json();
+  try {
+    const response = await fetch(
+      "https://horror-stories-432d7-default-rtdb.firebaseio.com/fictional.json"
+    );
+    const data = await response.json();
 
-  const stories = [];
+    const stories = [];
 
-  for (const key in data) {
-    stories.push({
-      id: key,
-      ...data[key],
+    for (const key in data) {
+      stories.push({
+        id: key,
+        ...data[key],
+      });
+    }
+
+    const paths = stories.map((story) => {
+      return {
+        params: {
+          storiesId: `${story.id}`,
+        },
+      };
     });
-  }
 
-  const paths = stories.map((story) => {
     return {
-      params: {
-        storiesId: `${story.id}`,
-      },
+      paths,
+      fallback: false,
     };
-  });
-
-  return {
-    paths,
-    fallback: false,
-  };
+  } catch (err) {
+    console.log(err);
+    router.push("404");
+  }
 }
 export async function getStaticProps(context) {
   const { params } = context;
-  const response = await fetch(
-    `https://horror-stories-432d7-default-rtdb.firebaseio.com/fictional/${params.storiesId}.json`
-  );
-  const data = await response.json();
+  try {
+    const response = await fetch(
+      `https://horror-stories-432d7-default-rtdb.firebaseio.com/fictional/${params.storiesId}.json`
+    );
+    const data = await response.json();
 
-  if (!response.ok) {
+    if (!response.ok) {
+      return {
+        props: {
+          stories: null,
+        },
+      };
+    }
+
     return {
       props: {
-        stories: null,
+        story: data,
       },
     };
+  } catch (err) {
+    console.log(err);
+    router.push("404");
   }
-
-  return {
-    props: {
-      story: data,
-    },
-  };
 }

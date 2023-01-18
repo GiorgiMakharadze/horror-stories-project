@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import styles from "./stories.module.scss";
+import Head from "next/head";
 
 const storiesPage = ({ stories }) => {
   const [show, setShow] = useState(false);
@@ -31,6 +32,10 @@ const storiesPage = ({ stories }) => {
 
   return (
     <>
+      <Head>
+        <title>All stories</title>
+        <meta name="description" content="All stories" />
+      </Head>
       {Dropdown}
       <div className={styles.mainContainer}>
         {stories

@@ -5,6 +5,12 @@
   @include flexCenter;
   flex-direction: column;
   font-size: $font-main;
+  margin-top: 10rem;
+
+  h1,
+  h4 {
+    color: $color-tertiary;
+  }
 
   main {
     width: 50rem;

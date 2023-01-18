@@ -3,16 +3,44 @@
 
 .nav {
   @include flexCenter;
-  gap: 30rem;
-  font-size: 4rem;
+  position: relative;
+  font-size: $font-main;
   border-bottom: 0.1rem inset $color-main;
   background-color: $color-secondary;
 }
 
 .link {
   padding: 1rem;
+  margin-right: 1rem;
 
   &:hover {
     @include buttonHover($color-main);
   }
+}
+
+.fbLogo {
+  @include flexCenter;
+}
+
+.singout {
+  font-size: $font-tertiary;
+  text-align: center;
+  width: 7rem;
+
+  &:hover {
+    @include buttonHover($color-tertiary);
+  }
+}
+
+.mainDiv {
+  position: relative;
+  @include flexCenter;
+  width: inherit;
+  right: 14rem;
+  gap: 8rem;
+}
+
+.secondayDiv {
+  position: absolute;
+  right: 27rem;
 }

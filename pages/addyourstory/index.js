@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { useRouter } from "next/router";
+import Head from "next/head";
 import styles from "./yourstory.module.scss";
 
 const YourStory = () => {
@@ -39,6 +40,10 @@ const YourStory = () => {
 
   return (
     <>
+      <Head>
+        <title>Add your story</title>
+        <meta name="description" content="Add your story" />
+      </Head>
       <div className={styles.mainContainer}>
         <div className={styles.ImportantMessage}>
           <h1>Important !</h1>
