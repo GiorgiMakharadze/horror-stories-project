@@ -19,6 +19,11 @@
     @content;
   }
 }
+@mixin mobileSamsung() {
+  @media (max-width: 360px) {
+    @content;
+  }
+}
 
 @mixin pad() {
   @media (max-width: 970px) {

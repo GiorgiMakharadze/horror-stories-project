@@ -85,17 +85,29 @@
     position: relative;
     @include flexCenter;
     flex-direction: column;
-    width: 80rem;
+    width: 70rem;
     margin-top: 10rem;
   }
 }
+
 @include mobile() {
   .secondaryContainer {
     position: relative;
     @include flexCenter;
     flex-direction: column;
     width: 35rem;
-    right: 0.5rem;
+    margin-left: 1rem;
+    margin-top: 10rem;
+  }
+}
+
+@include mobileSamsung() {
+  .secondaryContainer {
+    position: relative;
+    @include flexCenter;
+    flex-direction: column;
+    width: 34rem;
+    margin-right: 3rem;
     margin-top: 10rem;
   }
 }

@@ -11,7 +11,6 @@ const hero = () => {
           This is a horror stories Site. Here you can read other people's
           stories and add your own !
         </h2>
-        <h4>To Add Your Story Sign In With Facebook !</h4>
       </main>
     </div>
   );

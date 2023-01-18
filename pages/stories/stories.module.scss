@@ -64,6 +64,16 @@
   button:hover {
     @include buttonHover($color-tertiary);
   }
+  @include note() {
+    width: 30rem;
+  }
+  @include pad() {
+    width: 20rem;
+    height: inherit;
+  }
+  @include mobile() {
+    width: 50rem;
+  }
 }
 
 .dropdown {
@@ -81,8 +91,8 @@
   margin-top: 2rem;
 
   @include mobile() {
-    margin-left: 8rem;
-    margin-top: 10rem;
+    position: relative;
+    left: 6rem;
   }
   @include pad() {
     margin-left: 1rem;

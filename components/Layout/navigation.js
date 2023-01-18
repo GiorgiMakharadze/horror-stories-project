@@ -1,12 +1,8 @@
 import Link from "next/link";
 import Logo from "./logo";
 import styles from "./navigation.module.scss";
-import Image from "next/image";
-import { useSession, signIn, signOut } from "next-auth/react";
-import Guthub from "../../public/images/github.svg";
-const navigation = () => {
-  const { data: session } = useSession();
 
+const navigation = () => {
   return (
     <nav className={styles.nav}>
       <div className={styles.mainDiv}>
@@ -16,33 +12,11 @@ const navigation = () => {
         <Link href="/" className={styles.mainLogo}>
           <Logo />
         </Link>
-      </div>
-      <div className={styles.secondayDiv}>
-        {!session && (
-          <Link href="/api/auth/signin">
-            <Image
-              onClick={() => signIn()}
-              src={Guthub}
-              alt="github Logo"
-              style={{ cursor: "pointer" }}
-              className={styles.logo}
-            />
+        <div className={styles.secondDiv}>
+          <Link className={styles.link2} href="/addyourstory">
+            Add Your Story
           </Link>
-        )}
-        {session && (
-          <div className={styles.gtLogo}>
-            <Link className={styles.link} href="/addyourstory">
-              Add Your Story
-            </Link>
-            <Link
-              href="/api/auth/signout"
-              className={styles.singout}
-              onClick={() => signOut()}
-            >
-              sing Out
-            </Link>
-          </div>
-        )}
+        </div>
       </div>
     </nav>
   );

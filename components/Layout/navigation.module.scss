@@ -3,7 +3,6 @@
 
 .nav {
   @include flexCenter;
-  position: relative;
   font-size: $font-main;
   width: 100%;
   border-bottom: 0.1rem inset $color-main;
@@ -20,17 +19,15 @@
   }
 }
 
-.gtLogo {
-  @include flexCenter;
-}
-
-.singout {
-  font-size: $font-tertiary;
-  text-align: center;
-  width: 7rem;
+.link2 {
+  position: relative;
+  bottom: 0.1rem;
+  padding: 1rem;
+  margin-right: 1rem;
+  font-size: $font-secondary;
 
   &:hover {
-    @include buttonHover($color-tertiary);
+    @include buttonHover($color-main);
   }
 }
 
@@ -38,17 +35,18 @@
   position: relative;
   @include flexCenter;
   width: inherit;
-  left: -15rem;
+  left: 1rem;
   gap: 8rem;
 }
 
-.secondayDiv {
-  position: absolute;
-  right: 27rem;
-  font-size: $font-secondary;
-  @include mobile() {
-    right: 8rem;
-    font-size: $font-tertiary;
+@include note() {
+  .mainDiv {
+    @include flexCenter;
+    position: relative;
+  }
+  .link2 {
+    position: relative;
+    right: 1rem;
   }
 }
 
@@ -58,39 +56,25 @@
     left: 0.1rem;
   }
 
-  .logo,
-  .gtLogo {
+  .secondDiv {
     position: relative;
-    right: 9rem;
+    bottom: 10rem;
+  }
 
-    font-size: $font-tertiary;
+  .mainLogo {
+    position: relative;
+    bottom: 5rem;
   }
 }
 
 @include pad() {
   .mainDiv {
-    position: relative;
-    left: 0.1rem;
+    height: 35rem;
   }
-
-  .logo,
-  .gtLogo {
+  .link2 {
     position: relative;
-    top: 10rem;
-
-    font-size: $font-tertiary;
-    border: 0.5rem outset $color-secondary;
-    background-color: $color-secondary;
-  }
-}
-
-@include note() {
-  .secondayDiv {
-    @include mobile() {
-      position: relative;
-      left: 10rem;
-      bottom: 3rem;
-      font-size: $font-tertiary;
-    }
+    right: 1rem;
+    bottom: 1rem;
+    left: 1rem;
   }
 }
